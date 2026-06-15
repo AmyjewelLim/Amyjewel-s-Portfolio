@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="stylesheet.css">
+</head>
+<body>
+    <main class="signup-page">
+        <video class="signup-bg-video" autoplay muted loop playsinline>
+            <source src="https://pixabay.com/videos/download/x-70796_medium.mp4" type="video/mp4">
+        </video>
+        <div class="signup-background-overlay"></div>
+
+        <section class="signup-panel">
+            <div class="signup-header">
+                <h1>Welcome Back</h1>
+                <p>Sign in to continue to your portfolio and projects.</p>
+            </div>
+
+            <form class="signup-form" id="login-form">
+                <label for="email">Email Address</label>
+                <input id="email" name="email" type="email" placeholder="you@example.com" required>
+
+                <label for="password">Password</label>
+                <input id="password" name="password" type="password" placeholder="Enter your password" required>
+
+                <div id="login-message" class="form-message"></div>
+
+                <button class="button-primary" type="submit">Log In</button>
+            </form>
+
+            <p class="signup-note">
+                <a href="forgot-password.html">Forgot your password?</a>
+            </p>
+            <p class="signup-note">
+                Don't have an account? <a href="signup.html">Sign up</a>
+            </p>
+        </section>
+    </main>
+
+    <script>
+        const API_URL = 'http://localhost:5000/api/auth';
+
+        document.getElementById('login-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const messageDiv = document.getElementById('login-message');
+            messageDiv.textContent = '';
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            try {
+                const response = await fetch(`${API_URL}/login`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, password })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    localStorage.setItem('token', data.token);
+                    messageDiv.style.color = 'green';
+                    messageDiv.textContent = 'Login successful! Redirecting...';
+                    setTimeout(() => window.location.href = 'index.html', 1500);
+                } else {
+                    messageDiv.style.color = 'red';
+                    messageDiv.textContent = data.error || 'Login failed';
+                }
+            } catch (error) {
+                messageDiv.style.color = 'red';
+                messageDiv.textContent = 'Error connecting to server';
+                console.error('Login error:', error);
+            }
+        });
+    </script>
+</body>
+</html>

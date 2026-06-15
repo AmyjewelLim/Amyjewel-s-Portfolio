@@ -1,12 +1,49 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Page Title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="stylesheet.css">
 </head>
 <body>
+    <main class="signup-page">
+        <video class="signup-bg-video" autoplay muted loop playsinline>
+            <source src="https://pixabay.com/videos/download/x-70796_medium.mp4" type="video/mp4">
+        </video>
+        <div class="signup-background-overlay"></div>
 
-<h1>This is a Heading</h1>
-<p>This is a paragraph.</p>
+        <section class="signup-panel">
+            <div class="signup-header">
+                <h1>Create Your Account</h1>
+                <p>Join now to start sharing your work and tracking your progress.</p>
+            </div>
 
+            <form class="signup-form" action="#" method="post">
+                <label for="full-name">Full Name</label>
+                <input id="full-name" name="full-name" type="text" placeholder="Your name" required>
+
+                <label for="email">Email Address</label>
+                <input id="email" name="email" type="email" placeholder="you@example.com" required>
+
+                <label for="password">Password</label>
+                <input id="password" name="password" type="password" placeholder="Create a password" required>
+
+                <label for="confirm-password">Confirm Password</label>
+                <input id="confirm-password" name="confirm-password" type="password" placeholder="Repeat your password" required>
+
+                <label class="checkbox-label">
+                    <input type="checkbox" name="terms" required>
+                    I agree to the <a href="#">terms and conditions</a>
+                </label>
+
+                <button class="button-primary" type="submit">Sign Up</button>
+            </form>
+
+            <p class="signup-note">
+                Already have an account? <a href="index.html">Log in</a>
+            </p>
+        </section>
+    </main>
 </body>
 </html>

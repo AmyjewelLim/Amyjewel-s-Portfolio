@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Study Portal</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <i class="fas fa-book"></i>
+                <span>StudyHub</span>
+            </div>
+            
+            <ul class="nav-menu">
+                <li><a href="#dashboard" class="nav-link active">Dashboard</a></li>
+                <li><a href="#study" class="nav-link">Study</a></li>
+                <li><a href="#courses" class="nav-link">Courses</a></li>
+                <li><a href="#community" class="nav-link">Community</a></li>
+                <li><a href="#planner" class="nav-link">Planner</a></li>
+            </ul>
+
+            <div class="navbar-right">
+                <!-- Notification Bell -->
+                <div class="notification-container">
+                    <button class="notification-bell" id="notificationBell">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </button>
+                    <div class="notification-dropdown" id="notificationDropdown">
+                        <div class="notification-header">
+                            <h3>Notifications</h3>
+                            <button class="close-btn" onclick="toggleNotifications()">×</button>
+                        </div>
+                        <div class="notifications-list">
+                            <div class="notification-item unread">
+                                <i class="fas fa-star"></i>
+                                <div class="notification-content">
+                                    <p class="notification-title">New Course Available</p>
+                                    <p class="notification-time">5 minutes ago</p>
+                                </div>
+                            </div>
+                            <div class="notification-item unread">
+                                <i class="fas fa-comment"></i>
+                                <div class="notification-content">
+                                    <p class="notification-title">New Message from Instructor</p>
+                                    <p class="notification-time">2 hours ago</p>
+                                </div>
+                            </div>
+                            <div class="notification-item">
+                                <i class="fas fa-check-circle"></i>
+                                <div class="notification-content">
+                                    <p class="notification-title">Assignment Submitted Successfully</p>
+                                    <p class="notification-time">1 day ago</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Profile Section -->
+                <div class="profile-container">
+                    <button class="profile-btn" id="profileBtn" onclick="toggleProfile()">
+                        <img src="https://pixabay.com/images/download/pexels-woman-1854284_1920.jpg" alt="Profile" class="profile-pic">
+                        <span class="profile-name">Amy Johnson</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="profile-dropdown" id="profileDropdown">
+                        <div class="profile-header">
+                            <img src="https://pixabay.com/images/download/pexels-woman-1854284_1920.jpg" alt="Profile" class="profile-pic-large">
+                            <div class="profile-info">
+                                <h3>Amy Johnson</h3>
+                                <p>amyjohnson@email.com</p>
+                            </div>
+                        </div>
+                        <div class="profile-menu">
+                            <a href="profile.html" class="profile-menu-item">
+                                <i class="fas fa-user"></i> My Profile
+                            </a>
+                            <a href="#" class="profile-menu-item">
+                                <i class="fas fa-cog"></i> Settings
+                            </a>
+                            <a href="#" class="profile-menu-item">
+                                <i class="fas fa-book"></i> My Courses
+                            </a>
+                            <a href="#" class="profile-menu-item">
+                                <i class="fas fa-chart-bar"></i> Statistics
+                            </a>
+                            <hr>
+                            <a href="login.html" class="profile-menu-item">
+                                <i class="fas fa-sign-out-alt"></i> Logout
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Dashboard Content -->
+    <main class="dashboard-container">
+        <!-- Header Section -->
+        <section class="dashboard-header">
+            <div class="header-content">
+                <h1>Welcome back, Amy! 👋</h1>
+                <p>Keep up your learning streak and achieve your goals</p>
+            </div>
+            <div class="header-stats">
+                <div class="stat-card">
+                    <i class="fas fa-flame"></i>
+                    <div>
+                        <p class="stat-label">Current Streak</p>
+                        <p class="stat-value">15 days</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-trophy"></i>
+                    <div>
+                        <p class="stat-label">Points</p>
+                        <p class="stat-value">2,450</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-certificate"></i>
+                    <div>
+                        <p class="stat-label">Certificates</p>
+                        <p class="stat-value">8</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="dashboard-grid">
+            <!-- Left Column -->
+            <div class="dashboard-left">
+                <!-- Study Progress Wheel -->
+                <section class="card progress-section">
+                    <h2>Study Progress</h2>
+                    <div class="progress-wheel-container">
+                        <svg class="progress-wheel" viewBox="0 0 200 200">
+                            <!-- Background circle -->
+                            <circle cx="100" cy="100" r="90" fill="none" stroke="#e6eef0" stroke-width="8"/>
+                            <!-- Progress circle -->
+                            <circle cx="100" cy="100" r="90" fill="none" stroke="#0ea5a4" stroke-width="8" 
+                                    stroke-dasharray="565.48" stroke-dashoffset="141.37" 
+                                    transform="rotate(-90 100 100)"
+                                    class="progress-circle"/>
+                            <!-- Center text -->
+                            <text x="100" y="95" text-anchor="middle" class="progress-text" font-size="32" font-weight="bold">75%</text>
+                            <text x="100" y="115" text-anchor="middle" class="progress-label" font-size="14">Complete</text>
+                        </svg>
+                    </div>
+                    <div class="progress-details">
+                        <div class="progress-item">
+                            <span class="progress-name">Mathematics</span>
+                            <div class="mini-progress">
+                                <div class="mini-progress-bar" style="width: 85%;"></div>
+                            </div>
+                            <span class="progress-percent">85%</span>
+                        </div>
+                        <div class="progress-item">
+                            <span class="progress-name">Science</span>
+                            <div class="mini-progress">
+                                <div class="mini-progress-bar" style="width: 70%;"></div>
+                            </div>
+                            <span class="progress-percent">70%</span>
+                        </div>
+                        <div class="progress-item">
+                            <span class="progress-name">English</span>
+                            <div class="mini-progress">
+                                <div class="mini-progress-bar" style="width: 65%;"></div>
+                            </div>
+                            <span class="progress-percent">65%</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Messages Section -->
+                <section class="card messages-section">
+                    <div class="messages-header">
+                        <h2>Messages</h2>
+                        <a href="#" class="view-all">View All</a>
+                    </div>
+                    <div class="messages-list">
+                        <div class="message-item unread">
+                            <img src="https://via.placeholder.com/45" alt="Sender" class="message-avatar">
+                            <div class="message-content">
+                                <div class="message-top">
+                                    <p class="message-sender">Dr. Sarah Thompson</p>
+                                    <span class="message-time">2 min ago</span>
+                                </div>
+                                <p class="message-text">Great job on your last assignment! Keep it up.</p>
+                            </div>
+                            <span class="unread-indicator"></span>
+                        </div>
+                        <div class="message-item">
+                            <img src="https://via.placeholder.com/45" alt="Sender" class="message-avatar">
+                            <div class="message-content">
+                                <div class="message-top">
+                                    <p class="message-sender">John Michael</p>
+                                    <span class="message-time">1 hour ago</span>
+                                </div>
+                                <p class="message-text">Did you understand the lecture on quantum mechanics?</p>
+                            </div>
+                        </div>
+                        <div class="message-item">
+                            <img src="https://via.placeholder.com/45" alt="Sender" class="message-avatar">
+                            <div class="message-content">
+                                <div class="message-top">
+                                    <p class="message-sender">Study Group</p>
+                                    <span class="message-time">3 hours ago</span>
+                                </div>
+                                <p class="message-text">Group study session tomorrow at 4 PM. Who's joining?</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Right Column -->
+            <div class="dashboard-right">
+                <!-- Video Tutorials -->
+                <section class="card tutorials-section">
+                    <div class="tutorials-header">
+                        <h2>Video Tutorials</h2>
+                        <a href="#" class="view-all">See More</a>
+                    </div>
+                    <div class="tutorials-grid">
+                        <div class="tutorial-card">
+                            <div class="tutorial-thumbnail">
+                                <img src="https://cdn.pixabay.com/photo/2015/09/05/22/46/student-925578_1280.jpg" alt="Tutorial">
+                                <div class="play-button">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                                <span class="duration">12:45</span>
+                            </div>
+                            <div class="tutorial-info">
+                                <h3>Introduction to Calculus</h3>
+                                <p class="tutorial-instructor">By Dr. Sarah Thompson</p>
+                                <div class="tutorial-meta">
+                                    <span class="difficulty easy">Easy</span>
+                                    <span class="views"><i class="fas fa-eye"></i> 2.3K</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tutorial-card">
+                            <div class="tutorial-thumbnail">
+                                <img src="https://cdn.pixabay.com/photo/2016/11/29/09/32/adult-1867743_1280.jpg" alt="Tutorial">
+                                <div class="play-button">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                                <span class="duration">18:30</span>
+                            </div>
+                            <div class="tutorial-info">
+                                <h3>Advanced Physics Concepts</h3>
+                                <p class="tutorial-instructor">By Prof. Mark Wilson</p>
+                                <div class="tutorial-meta">
+                                    <span class="difficulty hard">Hard</span>
+                                    <span class="views"><i class="fas fa-eye"></i> 1.8K</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tutorial-card">
+                            <div class="tutorial-thumbnail">
+                                <img src="https://cdn.pixabay.com/photo/2017/08/10/03/42/learn-2613771_1280.jpg" alt="Tutorial">
+                                <div class="play-button">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                                <span class="duration">15:20</span>
+                            </div>
+                            <div class="tutorial-info">
+                                <h3>English Literature Analysis</h3>
+                                <p class="tutorial-instructor">By Emma Davis</p>
+                                <div class="tutorial-meta">
+                                    <span class="difficulty medium">Medium</span>
+                                    <span class="views"><i class="fas fa-eye"></i> 3.1K</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tutorial-card">
+                            <div class="tutorial-thumbnail">
+                                <img src="https://cdn.pixabay.com/photo/2018/05/07/09/54/classroom-3385072_1280.jpg" alt="Tutorial">
+                                <div class="play-button">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                                <span class="duration">22:15</span>
+                            </div>
+                            <div class="tutorial-info">
+                                <h3>Biology Cell Structure</h3>
+                                <p class="tutorial-instructor">By Dr. Lisa Chen</p>
+                                <div class="tutorial-meta">
+                                    <span class="difficulty easy">Easy</span>
+                                    <span class="views"><i class="fas fa-eye"></i> 4.2K</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Upcoming Classes -->
+                <section class="card upcoming-section">
+                    <h2>Upcoming Classes</h2>
+                    <div class="upcoming-list">
+                        <div class="upcoming-item">
+                            <div class="upcoming-time">
+                                <p class="time">10:00 AM</p>
+                                <p class="date">Today</p>
+                            </div>
+                            <div class="upcoming-details">
+                                <h3>Advanced Mathematics</h3>
+                                <p class="instructor">Dr. Sarah Thompson</p>
+                                <p class="room"><i class="fas fa-video"></i> Online - Zoom</p>
+                            </div>
+                            <button class="join-btn">Join</button>
+                        </div>
+                        <div class="upcoming-item">
+                            <div class="upcoming-time">
+                                <p class="time">2:30 PM</p>
+                                <p class="date">Today</p>
+                            </div>
+                            <div class="upcoming-details">
+                                <h3>Physics Lab</h3>
+                                <p class="instructor">Prof. Mark Wilson</p>
+                                <p class="room"><i class="fas fa-map-marker-alt"></i> Lab Room 202</p>
+                            </div>
+                            <button class="join-btn">Join</button>
+                        </div>
+                        <div class="upcoming-item">
+                            <div class="upcoming-time">
+                                <p class="time">4:00 PM</p>
+                                <p class="date">Tomorrow</p>
+                            </div>
+                            <div class="upcoming-details">
+                                <h3>English Discussion</h3>
+                                <p class="instructor">Emma Davis</p>
+                                <p class="room"><i class="fas fa-video"></i> Online - Teams</p>
+                            </div>
+                            <button class="join-btn">Join</button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>

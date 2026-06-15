@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Study — Communication</title>
+  <link rel="stylesheet" href="stylesheet.css">
+  <link rel="stylesheet" href="study.css">
+</head>
+<body>
+  <header class="study-header">
+    <h1>Study Communicating Section</h1>
+    <div class="user-control">
+      <label>You're: <input id="current-user" placeholder="Enter your name" /></label>
+    </div>
+  </header>
+
+  <main class="study-main">
+    <section class="feed">
+      <div class="composer">
+        <select id="post-type">
+          <option value="post">Post</option>
+          <option value="question">Question</option>
+          <option value="lecture">Lecture</option>
+          <option value="tip">Tip & Trick</option>
+        </select>
+        <textarea id="post-text" placeholder="Write a question, tip, lecture or message..."></textarea>
+        <div class="composer-row">
+          <input id="post-media" type="file" accept="image/*,video/*">
+          <button id="add-post">Post</button>
+        </div>
+        <div id="media-preview" class="media-preview"></div>
+      </div>
+
+      <div id="posts" class="posts"></div>
+    </section>
+
+    <aside class="sidebar">
+      <div class="contacts">
+        <h3>Contacts</h3>
+        <div id="contacts-list"></div>
+      </div>
+
+      <div class="messaging">
+        <h3>Messages</h3>
+        <div id="messages-window" class="messages-window"></div>
+        <div class="message-composer">
+          <input id="message-to" placeholder="To (contact name)" />
+          <input id="message-text" placeholder="Write a message" />
+          <button id="send-message">Send</button>
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <script src="study.js" defer></script>
+</body>
+</html>

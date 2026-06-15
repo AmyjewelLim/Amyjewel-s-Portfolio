@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>My Profile - StudyHub</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <i class="fas fa-book"></i>
+                <span>StudyHub</span>
+            </div>
+
+            <div style="flex:1"></div>
+
+            <div class="navbar-right">
+                <a href="dashboard.html" class="nav-link">Back to Dashboard</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="dashboard-container">
+        <section class="card" style="display:flex;gap:24px;align-items:center;">
+            <img src="https://pixabay.com/images/download/pexels-woman-1854284_1920.jpg" alt="Amy Johnson" style="width:140px;height:140px;border-radius:12px;object-fit:cover;">
+            <div style="flex:1;">
+                <h1 style="margin:0 0 8px 0;">Amy Johnson</h1>
+                <p style="margin:0;color:var(--text-light);">amyjohnson@email.com</p>
+                <p style="margin-top:12px;color:var(--text-light);max-width:700px;">Bio: Passionate student focused on mathematics and physics. Loves collaborative learning and sharing insights with peers.</p>
+
+                <div style="margin-top:12px;display:flex;gap:12px;">
+                    <button class="join-btn" onclick="location.href='dashboard.html'">Edit Profile</button>
+                    <button class="join-btn" style="background:var(--accent);">Upload Avatar</button>
+                </div>
+            </div>
+            <div style="min-width:240px;">
+                <div class="stat-card" style="display:flex;flex-direction:column;align-items:flex-start;gap:8px;padding:16px;">
+                    <div style="display:flex;gap:8px;align-items:center;">
+                        <i class="fas fa-flame" style="font-size:1.2rem;color:var(--accent);"></i>
+                        <div>
+                            <p class="stat-label">Current Streak</p>
+                            <p class="stat-value">15 days</p>
+                        </div>
+                    </div>
+                    <div style="display:flex;gap:8px;align-items:center;">
+                        <i class="fas fa-trophy" style="font-size:1.2rem;color:var(--accent);"></i>
+                        <div>
+                            <p class="stat-label">Points</p>
+                            <p class="stat-value">2,450</p>
+                        </div>
+                    </div>
+                    <div style="display:flex;gap:8px;align-items:center;">
+                        <i class="fas fa-certificate" style="font-size:1.2rem;color:var(--accent);"></i>
+                        <div>
+                            <p class="stat-label">Certificates</p>
+                            <p class="stat-value">8</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div style="display:grid;grid-template-columns:1fr 380px;gap:24px;margin-top:24px;">
+            <section class="card">
+                <h2>Overview</h2>
+                <div style="display:flex;gap:20px;align-items:center;">
+                    <svg class="progress-wheel" viewBox="0 0 200 200" style="width:140px;height:140px;">
+                        <circle cx="100" cy="100" r="90" fill="none" stroke="#e6eef0" stroke-width="8"/>
+                        <circle cx="100" cy="100" r="90" fill="none" stroke="var(--accent)" stroke-width="8" 
+                                stroke-dasharray="565.48" stroke-dashoffset="141.37" 
+                                transform="rotate(-90 100 100)"
+                                class="progress-circle"/>
+                        <text x="100" y="95" text-anchor="middle" class="progress-text" font-size="26" font-weight="bold">75%</text>
+                        <text x="100" y="115" text-anchor="middle" class="progress-label" font-size="12">Complete</text>
+                    </svg>
+
+                    <div>
+                        <p style="margin:0 0 8px 0;font-weight:600;">Subjects Progress</p>
+                        <div style="display:flex;flex-direction:column;gap:12px;">
+                            <div style="display:flex;align-items:center;gap:12px;">
+                                <div style="min-width:110px;font-weight:600;">Mathematics</div>
+                                <div class="mini-progress" style="flex:1;"><div class="mini-progress-bar" style="width:85%"></div></div>
+                                <div style="min-width:40px;text-align:right;color:var(--accent);">85%</div>
+                            </div>
+                            <div style="display:flex;align-items:center;gap:12px;">
+                                <div style="min-width:110px;font-weight:600;">Science</div>
+                                <div class="mini-progress" style="flex:1;"><div class="mini-progress-bar" style="width:70%"></div></div>
+                                <div style="min-width:40px;text-align:right;color:var(--accent);">70%</div>
+                            </div>
+                            <div style="display:flex;align-items:center;gap:12px;">
+                                <div style="min-width:110px;font-weight:600;">English</div>
+                                <div class="mini-progress" style="flex:1;"><div class="mini-progress-bar" style="width:65%"></div></div>
+                                <div style="min-width:40px;text-align:right;color:var(--accent);">65%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h2 style="margin-top:20px;">Enrolled Courses</h2>
+                <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px;">
+                    <li style="padding:12px;border:1px solid var(--border);border-radius:8px;">Advanced Mathematics - Dr. Sarah Thompson</li>
+                    <li style="padding:12px;border:1px solid var(--border);border-radius:8px;">Physics - Prof. Mark Wilson</li>
+                    <li style="padding:12px;border:1px solid var(--border);border-radius:8px;">English Literature - Emma Davis</li>
+                </ul>
+            </section>
+
+            <aside class="card">
+                <h2>Recent Activity</h2>
+                <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;">
+                    <li style="padding:8px;border-radius:6px;background:var(--bg);">Completed: Calculus Quiz 3</li>
+                    <li style="padding:8px;border-radius:6px;background:var(--bg);">Posted in Study Group: Quantum Mechanics</li>
+                    <li style="padding:8px;border-radius:6px;background:var(--bg);">Earned Certificate: Algebra</li>
+                </ul>
+
+                <h2 style="margin-top:16px;">Settings</h2>
+                <div style="display:flex;flex-direction:column;gap:8px;">
+                    <label style="display:flex;align-items:center;gap:8px;"><input type="checkbox" checked> Email notifications</label>
+                    <label style="display:flex;align-items:center;gap:8px;"><input type="checkbox"> SMS notifications</label>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>
